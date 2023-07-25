@@ -1,23 +1,44 @@
 import { Input, Button, Card, Form } from 'antd';
 
-const TodoForm = ({onFinish, form}) => {
-
+const TodoForm = ({ onFinish, form }) => {
   return (
-    <Card className="flex justify-center align-center" style={{backgroundColor: "blueviolet"}}>
-      <Form form={form} onFinish={onFinish} style={{textAlign: 'center', marginLeft: "200px", marginRight: "200px" }}>
-        <Form.Item name="task">
-          <Input style={{marginBottom: '15px',}}
-          placeholder="Add a new task..."/>
+    <Card
+      style={{
+        backgroundColor: "blueviolet",
+        textAlign: "center",
+      }}
+    >
+      <Form
+        form={form}
+        onFinish={onFinish}
+        style={{
+          textAlign: "center",
+          marginLeft: "100px",
+          marginRight: "100px",
+        }}
+      >
+        <Form.Item
+          name="task"
+          rules={[{ required: true, message: "Please enter a task!" }]}
+        >
+          <Input placeholder="Add a new task..." />
         </Form.Item>
-        
+
         <Form.Item>
-        <Button type="primary" htmlType="submit" style={{backgroundColor: "black"}} >
-        Create Task
+          <Button
+            type="primary"
+            htmlType="submit"
+            style={{
+              backgroundColor: "black",
+              marginTop: "15px",
+            }}
+            block
+          >
+            Create Task
           </Button>
-          </Form.Item>
+        </Form.Item>
       </Form>
-    </Card>      
+    </Card>
   );
 };
-
 export default TodoForm;
